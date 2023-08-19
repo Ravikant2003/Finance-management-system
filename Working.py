@@ -52,14 +52,15 @@ def edit():
     ans = 'Yes'
     while ans == 'Yes':
         code = int(input("Enter the code for edit you have"))
-        print("Enter cat for category, Enter date for date,\n Enter amt for amount,",end=' ')
-        print("Enter account for account, Enter explain for explain:")
+        print("Enter one of the following option:")
+        print(" Category\n Date\n Amount\n Account\n Details\n code")
         option = input()
-        if option == 'cat' or option == 'date' or option == 'explain':
+        if option == 'Category' or option == 'Date' or option == 'Explain':
             value=input("Enter the value:")
+            cursor.execute(f"Update details set {option}='{value}' where code = {code}")
         else:
             value=int(input("Enter the value:"))
-        cursor.execute(f"Update details set {option}={value} where code = {code}")
+            cursor.execute(f"Update details set {option}={value} where code = {code}")
         mycon.commit()
         ans = input("Do you want to continue?(Yes/No)")
     mycon.close()
@@ -92,3 +93,4 @@ def graph():
 
     # Display the pie chart
     plt.show()
+edit()
