@@ -9,6 +9,7 @@ def prev():
     mycon.close()
 ##################################################################
 
+
 def new():
     import mysql.connector as sqltor
     mycon = sqltor.connect(host="localhost", user="root", passwd='One2three4@2003', database="Budget")
@@ -28,6 +29,7 @@ def new():
     mycon.close()
 ############################################################################################
 
+
 def delete():
     import mysql.connector as sqltor
     mycon = sqltor.connect(host="localhost", user="root", passwd='One2three4@2003', database="Budget")
@@ -42,6 +44,7 @@ def delete():
 
 ##################################################################################
 
+
 def edit():
     import mysql.connector as sqltor
     mycon = sqltor.connect(host="localhost", user="root", passwd='One2three4@2003', database="Budget")
@@ -49,17 +52,15 @@ def edit():
     ans = 'Yes'
     while ans == 'Yes':
         code = int(input("Enter the code for edit you have"))
-        cat = input("Enter the category of expenditure")
-        date = input("Enter the date.")
-        amt = int(input("Enter the amount"))
-        account = input("Enter the account name")
-        explain = input("Enter the explanation for the work.")
-        val = (cat, date, amt, account, explain, code)
-        cursor.execute(f"Insert into details values {val}")
+        print("Enter cat for category, Enter date for date, Enter amt for amount,",end=' ')
+        print("Enter account for account, Enter explain for explain:")
+        x = input()
+        cursor.execute(f"Update details set {x} where code = {code}")
         mycon.commit()
         ans = input("Do you want to continue?(Yes/No)")
     mycon.close()
 #############################################################################################
+
 
 def graph():
     time = input("Enter the date in (YYYY-MM-DD) format.")
@@ -82,4 +83,4 @@ def graph():
 
     # Display the pie chart
     plt.show()
-graph()
+graph()'''
