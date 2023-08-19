@@ -66,19 +66,24 @@ def graph():
     import mysql.connector as sqltor
     mycon = sqltor.connect(host="localhost", user="root", passwd='One2three4@2003', database="Budget")
     cursor = mycon.cursor()
-    cursor.execute("Desc details")
-    data = cursor.fetchall()
-    print(data)
-    '''import matplotlib.pyplot as plt
-    labels = ['Apples', 'Bananas', 'Cherries', 'Dates']
-    sizes = [35, 25, 20, 10]  # Percentages
-
+    cursor.execute("select category,amount from details")
+    data1 = cursor.fetchall() # Gives the column name
+    import matplotlib.pyplot as plt
+    labels=[] # Contains the list of column names
+    for info in data1:
+        if info[0] not in labels:
+            labels.append(info[0])
+    size=[] # Contains the amount of each column
+    for i in range(len(labels)):
+        cursor.execute(f'select sum(amount) "{labels[i]}" from details where category="{labels[i]}"')
+        data3=cursor.fetchall()
+        size.append(int(data3[0][0]))
     # Create a pie chart
-    plt.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140)
+    plt.pie(size, labels=labels, autopct='%1.1f%%', startangle=140)
     plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
 
     # Add a title
-    plt.title('Distribution of Fruits')
+    plt.title('Distribution of Amount')
 
     # Display the pie chart
     plt.show()
