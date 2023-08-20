@@ -93,4 +93,34 @@ def graph():
 
     # Display the pie chart
     plt.show()
-edit()
+
+
+
+def bargraph():
+    time = input("Enter the date in (YYYY-MM-DD) format.")
+    import mysql.connector as sqltor
+    mycon = sqltor.connect(host="localhost", user="root", passwd='One2three4@2003', database="Budget")
+    cursor = mycon.cursor()
+    cursor.execute("select category,amount from details")
+    data1 = cursor.fetchall() # Gives the column name
+    import matplotlib.pyplot as plt
+    labels=[] # Contains the list of column names
+    for info in data1:
+        if info[0] not in labels:
+            labels.append(info[0])
+    size=[] # Contains the amount of each column
+    for i in range(len(labels)):
+        cursor.execute(f'select sum(amount) "{labels[i]}" from details where category="{labels[i]}"')
+        data3=cursor.fetchall()
+        size.append(int(data3[0][0]))
+    position = range(len(labels))
+    plt.bar(position,size)
+
+    plt.xticks(position, labels)
+    
+    plt.title("Your Expenditure")
+
+    plt.xlabel("Categories")
+    plt.ylabel("Amount")
+
+    plt.show()
