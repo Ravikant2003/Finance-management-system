@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Record</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expense</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Edit Expense</h1>
+    <form method="POST" action="/edit-data">
+        <p>Enter the name. Based on the name changes will be made.</p>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount">
+        <label for="category">Category:</label>
+
+        <label for="category">Category:</label>
+        <select id="expense-category" name="expense_category">
+            <option value="groceries">Groceries</option>
+            <option value="utilities">Utilities</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="dining">Dining</option>
+            <option value="others">Others</option>
+        </select>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <button type="submit">Save Changes</button>
+        <button onclick="location.href='/'" type="button">Return to Main Page</button>
+    </form>
+</body>
+</html>

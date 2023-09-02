@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!--  <link rel="stylesheet" href="styles.css"> -->
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Expense Tracker</h1>
+    </header>
+    <div class="container">
+        <div id="summary">
+            <div>
+                <h2>Summary</h2>
+                <p>Total Expenses: Rs<span id="total-expenses">0</span></p>
+            </div>
+            <div>
+                <label for="expense-limit">Expense Limit:</label>
+                <input type="number" id="expense-limit-input" name="expense_limit" min="0">
+                <p id="expense-limit-warning">{{ expense_limit_warning }}</p>
+            </div>
+        </div>
+        <hr>
+        <h2>Add New Expense</h2>
+        <form method="POST" action="/add_expense">
+            <label for="expense-name">Name:</label>
+            <input type="text" id="expense-name" name="expense_name">
+            <label for="expense-amount">Amount:</label>
+            <input type="number" id="expense-amount" name="expense_amount" min="0">
+            <label for="expense-date">Date:</label>
+            <input type="date" id="expense-date" name="expense_date">
+            <label for="expense-category">Category:</label>
+            <select id="expense-category" name="expense_category">
+                <option value="groceries">Groceries</option>
+                <option value="utilities">Utilities</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="dining">Dining</option>
+                <option value="others">Others</option>
+            </select>
+            <button type="submit">Add Expense</button>
+            <button onclick="location.href='/edit'" type="button">Edit</button>
+            <button onclick="location.href='/delete'" type="button">Delete Record</button>
+            <!--<button type="submit" formaction="/delete">Delete</button>  Add the delete button here -->
+        </form>
+        <h1>Expense Tracker</h1>
+        <!-- Create a hyperlink to the new page -->
+        <button onclick="location.href='/expense_list'" type="button">Expense List</button>
+        </div>
+    </div>
+    <script src="static/script.js"></script>
+</body>
+</html>
+
