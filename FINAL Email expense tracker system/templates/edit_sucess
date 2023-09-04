@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Success</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Add your CSS styles or link to an external stylesheet here -->
+</head>
+<body>
+    <h1>Edit Successful</h1>
+    <p>The record has been successfully edited.</p>
+    <!-- You can include additional information or links here -->
+    <div class="container">
+        <button onclick="location.href='/'" type="button">Return to Main Page</button>
+        <!-- Add more options or links as needed -->
+    </div>    
+</body>
+</html>

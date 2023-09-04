@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense List</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Monthly Expense List</h1>
+    </header>
+    <div class="container">
+        <h2>Select a Month</h2>
+        <form method="POST" action="/monthly_expenses_selection">
+            <label for="month">Month:</label>
+            <select id="month" name="month">
+                <option value=1>January</option>
+                <option value=2>February</option>
+                <option value=3>March</option>
+                <option value=4>April</option>
+                <option value=5>May</option>
+                <option value=6>June</option>
+                <option value=7>July</option>
+                <option value=8>August</option>
+                <option value=9>September</option>
+                <option value=10>October</option>
+                <option value=11>November</option>
+                <option value=12>December</option>
+                <!-- Add options for all 12 months -->
+            </select>
+            <button type="submit">Submit</button>
+        </form>
+        <hr> <!-- Add a horizontal line to separate the date selection and the table -->
+        <h2>Expenses for Selected Month</h2>
+        <table border="1" style="background-color: white;">
+            <thead>
+                <tr>
+                    <th>Name of item </th>
+                    <th>Category</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <button onclick="location.href='/';">Return to Main Page</button>
+        <button onclick="location.href='/expense_list';">Return to Daily Expense</button>
+        <!-- Add more options or links as needed -->
+    </div>    
+</body>
+</html>
