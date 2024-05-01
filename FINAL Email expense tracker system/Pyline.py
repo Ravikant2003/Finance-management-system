@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import mysql.connector as sqltor
 import matplotlib.pyplot as plt
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../Frontend1/Template", static_folder="../Frontend1/Static")
 
 # Initialize variables
 total_expenses = 0
@@ -285,4 +285,4 @@ def edit_data():
     return render_template('edit_sucess')
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
