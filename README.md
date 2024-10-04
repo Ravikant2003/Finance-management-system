@@ -75,6 +75,3 @@ The Expense Tracker System is a Flask-based application that manages personal ex
 6. **Mobile Responsiveness:**
    - Ensuring that the templates are responsive would improve usability, especially on mobile devices, where users may often want to quickly check or manage their expenses.
 
----
-
-With the above functionality and suggestions, your Expense Tracker System is shaping up to be a comprehensive and useful tool!
