@@ -1,11 +1,11 @@
-# Expense-Tracker
+# Finance-Management-System
 The Link for the live demonstration of this project is :  https://youtu.be/-fW-UqbdvJU
 
 
-### Expense Tracker System  - Code Walkthrough:
+### Finance Management System  - Code Walkthrough:
 
 **Project Overview:**
-The Expense Tracker System is a Flask-based application that manages personal expenses, enabling users to add, edit, and delete expense records. It also includes functionalities for setting a budget, checking monthly expenses, visualizing expenses using charts, and sending updates via email. The project uses MySQL for data storage and integrates SMTP for email notifications.
+The Finance-Management-System System is a Flask-based application that manages personal expenses, enabling users to add, edit, and delete expense records. It also includes functionalities for setting a budget, checking monthly expenses, visualizing expenses using charts, and sending updates via email. The project uses MySQL for data storage and integrates SMTP for email notifications.
 
 ---
 
@@ -40,7 +40,7 @@ The Expense Tracker System is a Flask-based application that manages personal ex
 
 #### Main Functionalities:
 
-1. **Expense Management:**
+1. **Finance Management:**
    - Users can add, edit, and delete expenses, with each change reflected in the MySQL database. The app keeps track of total expenses and warns users if they exceed their set budget.
 
 2. **Email Notifications:**
